@@ -1,0 +1,22 @@
+<launch>
+    <arg name="r1" default = "1" />
+    <arg name="r2" default = "2" />
+
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim_node_JB">
+        <remap from="turtle1/cmd_vel" to="nodeJB_cmdvel"/>
+    </node>
+
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim_node_HP">
+        <remap from="turtle1/cmd_vel" to="nodeHP_cmdvel"/>
+    </node>
+
+    <node pkg="turtlesim_cleaner" type="circle.py" name="circle_JB">
+        <param name="r" value="$(arg r1)"/>
+        <remap from="turtle1/cmd_vel" to="nodeJB_cmdvel"/>
+    </node>
+
+    <node pkg="turtlesim_cleaner" type="circle.py" name="circle_HP">
+        <param name="r" value="$(arg r2)"/>
+        <remap from="turtle1/cmd_vel" to="nodeHP_cmdvel"/>
+    </node>
+</launch>

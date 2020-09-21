@@ -1,0 +1,9 @@
+<launch>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim_node_JB" />
+
+    <node pkg="turtlesim_cleaner" type="gotogoal.py" name="gotogoal_JB">
+        <param name="x" value="5"/>
+        <param name="y" value="8"/>
+        <param name="tol" value="0.1"/>
+    </node>
+</launch>

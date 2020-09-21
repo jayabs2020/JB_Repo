@@ -1,0 +1,14 @@
+<launch>
+   <arg name="x" default = "2" /> 
+   <arg name="y" default = "2" /> 
+   <arg name="tol" default = "0.1" />
+   
+   <node pkg="turtlesim" type="turtlesim_node" name="turtlesim_node_JB" />
+   <node pkg="turtlesim" type="turtlesim_node" name="turtlesim_node_HP" />
+   
+   <node pkg="turtlesim_cleaner" type="gotogoal.py" name="gotogoal_JB" >
+       <param name="x" value="$(arg x)"/>
+       <param name="y" value="$(arg y)"/>
+       <param name="tol" value="$(arg tol)"/>
+   </node>
+</launch>
